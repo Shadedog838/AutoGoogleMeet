@@ -4,10 +4,10 @@ from cal_setup import get_calendar_service
 def main():
   service = get_calendar_service()
 
-  d = datetime.now().data()
+  d = datetime.now().date()
   tomorrow = datetime(d.year, d.month, d.day, 10)+timedelta(days=1)
   start = tomorrow.isoformat()
-  end = (tomorrow + timedelta(hour=1)).isoformat()
+  end = (tomorrow + timedelta(hours=1)).isoformat()
 
   event_result = service.events().insert(calendarId='primary',
     body={
