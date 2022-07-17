@@ -13,13 +13,14 @@ def main():
     body={
       "summary": 'Automating calendar',
       "description": 'This is a tutorial example of automating google calendar with python',
-      "start": {"dateTime": start, "timeZone": 'Asia/Kolkata'},
-      "end": {"dateTime": end, "timeZone": 'Asia/Kolkata'},
+      "start": {"dateTime": start, "timeZone": 'America/New_York'},
+      "end": {"dateTime": end, "timeZone": 'America/New_York'},
     }
   ).execute()
 
   print("created event")
   print("id: ", event_result['id'])
+  print("description: ", event_result['description'])
   print("summary: ", event_result['summary'])
   print("starts at: ", event_result['start']['dateTime'])
   print("ends at: ", event_result['end']['dateTime'])
