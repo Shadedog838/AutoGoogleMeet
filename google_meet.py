@@ -4,13 +4,9 @@ import schedule, webbrowser
 import datetime
 from cal_setup import get_calendar_service
 
-link = "https://meet.google.com/ysi-xfyy-xsx"
-time = "01:00"
-
 def get_event():
 	service = get_calendar_service()
 	now = datetime.datetime.utcnow().isoformat() + 'Z'
-	print('Getting event')
 	events_result = service.events().list(calendarId='primary', timeMin=now, maxResults=1,
 	singleEvents=True, orderBy='startTime').execute()
 	events=events_result.get('items', [])
@@ -29,10 +25,9 @@ def join():
 	auto.hotkey('ctrl', 'e')
 	auto.click(1355, 629)
 
+time, link = get_event()
 schedule.every().day.at(time).do(join)
 
 while True:
-	time, link = get_event()
-	print(time,link)
 	schedule.run_pending()
-	sleep(60)
+	sleep(1)
