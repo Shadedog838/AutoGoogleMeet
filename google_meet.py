@@ -36,4 +36,4 @@ while True:
 	time, link = get_event()
 	print(time,link)
 	schedule.run_pending()
-	sleep(1)
+	sleep(60)
