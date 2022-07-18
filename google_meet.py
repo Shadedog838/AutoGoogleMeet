@@ -26,6 +26,7 @@ def join():
 	auto.click(1355, 629)
 
 time, link = get_event()
+print(time, link)
 schedule.every().day.at(time).do(join)
 
 while True:
